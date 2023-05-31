@@ -19,8 +19,14 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('get/', views.getData),
-    path('add/', views.addEmployee),
+    path('get/<int:id>', views.getData),
+    path('add/', views.addApplicant),
     path('delete/<int:id>', views.delete),
-    path('update/', views.update)
+    path('update/', views.update),
+    
+    ########
+    path('login/', views.LoginView.as_view()),
+    path('profile/', views.ProfileView.as_view()),
+    path('logout/', views.LogoutView.as_view()),
+    path('download/<str:file_name>', views.download)
 ]

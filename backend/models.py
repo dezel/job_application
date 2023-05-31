@@ -10,3 +10,16 @@ class Employee(models.Model):
     active = models.BooleanField(null=True)
     created = models.DateTimeField(auto_now_add=True)
 # Create your models here.
+
+class Applicant(models.Model):
+    applicant_number = models.CharField(max_length=5)    
+    name = models.CharField(max_length=64)
+    email = models.CharField(max_length=64, null=True, default=None)
+    phone = models.CharField(max_length=12)
+    cv = models.FileField(null=True)
+    
+    def __str__(self):
+        return self.name
+
+
+    

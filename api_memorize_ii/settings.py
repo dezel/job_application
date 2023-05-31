@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,11 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&810zq^8c(g$#z)xwwwtsnih+6dm_i7hs=gqf(iecft4u5gkn4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['emp-app-8gqr.onrender.com','*']
+ALLOWED_HOSTS=['http://localhost:3000','localhost', '127.0.0.1']
 
-
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
 # Application definition
 
 INSTALLED_APPS = [
@@ -52,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
+    'django.contrib.sessions.middleware.SessionMiddleware'
 ]
 
 ROOT_URLCONF = 'api_memorize_ii.urls'
@@ -75,7 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'api_memorize_ii.wsgi.application'
 
-CORS_ORIGIN_ALLOW_ALL = True
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -86,6 +87,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -95,7 +97,13 @@ CORS_ORIGIN_ALLOW_ALL = True
 #         'HOST': 'localhost',
 #         'PORT': '5432',
 #     }
-#}
+# }
+
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+# ]
+
 
 DATABASES={
     'default':{
@@ -148,3 +156,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+############################
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework.authentication.SessionAuthentication',
+#     ],
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.IsAuthenticated',
+#     ],
+# }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
