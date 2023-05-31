@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-&810zq^8c(g$#z)xwwwtsnih+6dm_i7hs=gqf(iecft4u5gkn4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['emp-app-8gqr.onrender.com','*']
-ALLOWED_HOSTS=['http://localhost:3000','localhost', '127.0.0.1', 'job-application-wjg8.onrender.com']
+ALLOWED_HOSTS = ['emp-app-8gqr.onrender.com','*']
+# ALLOWED_HOSTS=['http://localhost:3000','localhost', '127.0.0.1', 'job-application-wjg8.onrender.com']
 
 CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
